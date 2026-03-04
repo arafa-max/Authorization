@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="sign up.css"/>
+        <title>
+        Sign up
+    </title>
+    <link rel="icon" type="image/svg" size="16x16" href="image/Group 47602.svg" >
+</head>
+    <body>
+        <header>
+            <div class="backgr">
+                <div class="img2">
+                    <img src="image/Rectangle 20.svg">
+                </div>
+             <div class="your1">
+                <img src="image/Group 47602.svg" class="vect">
+                <a class="your"> Your Logo</a>
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <div class="ss">
+                <br>    
+                <br>
+                <br><br>
+                <a class="sign"> Sign up</a>
+                <br>
+                <br>
+                <a class="textsign">
+                    Let’s get you all st up so you can access your personal account.
+                </a>
+                <br>
+                <br>
+                <br>
+                <form>
+                    <input type="text" name="name" id="name" placeholder="First Name">
+                &nbsp;
+                    <input type="text" name="Last name" id="lastname" placeholder="Last Name">
+                </form>
+                <br>    
+                <form>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                &nbsp;
+                    <input type="text" name="phone" id="phone" placeholder="Phone Number">
+                </form>
+                    
+                <br>
+                    
+           <input type="password" id="password" placeholder="Password">
+   <img src="image/trailing-icon.svg" id="eye" onclick="togglePassword()"
+                        style="position: absolute;margin-left: -30px;margin-top: 3.5px;width: 30px;">
+  <br>
+
+  <br>
+                        <input type="password" id="confirm" placeholder="Confirm Password">
+ <img src="image/trailing-icon.svg" id="eye3" onclick="togglePassword3()"
+                        style="position: absolute;margin-left: -30px;margin-top: 3.5px;width: 30px;">
+                    </form>
+  <div class="rule" id="lengthRule">Пароль должен быть минимум 8 символов</div>
+  <div class="rule" id="letterRule">Пароль должен содержать букву</div>
+  <div class="rule" id="numberRule">Пароль должен содержать цифру</div>
+  <div class="rule" id="specialRule">Пароль должен содержать специальный символ (!@#$%^&*)</div>
+  <div class="rule" id="matchRule">Пароли совпадают ✅</div>
+<br>
+<br>
+<form class="bu">
+    <input type="checkbox" id="i">
+    <label for="i">I agree to all the 
+        <a style="color: #FF8682;">
+            Terms
+        </a>
+        and
+                <a style="color: #FF8682;">
+        Privacy Policies </a>
+    </label>
+    <br>
+    <br>
+    <button type="button" id="registerBtn" disabled>Create account</button>
+    <div id="message"></div>
+</form>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Already have an account? 
+<a href="login.html" style="color: #FF8682;text-decoration: none;">Login
+</a>
+<p>
+  <span style="display: inline-block; width: 143px; border-top: 1px solid #ccc; vertical-align: middle;"></span>
+  <span style="margin: 0 10px; color: #555;">OR login with</span>
+  <span style="display: inline-block; width: 143px; border-top: 1px solid #ccc; vertical-align: middle;"></span>
+</p>
+                        <br>
+                    <button><img src="image/Vector (1).png"> </button>
+                    &nbsp;
+                    <button><img src="image/flat-color-icons_google.png"> </button>
+                    &nbsp;
+                    <button><img src="image/ant-design_apple-filled.png"></button>
+                </div>
+</div>
+
+
+        </header>
+
+   <script src="sign up.js"></script>
+            </body>
+</html>
