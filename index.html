@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+          <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="login.css"/>
+        <title>
+        Login
+    </title>
+    <link rel="icon" type="image/svg" size="16x16" href="image/Group 47602.svg" >
+</head>
+    <body>
+        <header>
+            <div class="backgr">
+             <div class="your1">
+                <img src="image/Group 47602.svg" class="vect">
+                <a class="your"> Your Logo</a>
+                </div>
+                <div class="ss">
+                <br>
+                <br>
+                <br><br><br><br>
+                <a class="log">Login</a>
+                <br>
+                <br>
+                <a class="logtext">
+                Login to access your travelwise  account
+                </a>
+                <br><br>
+                    <form>
+                        <div class="email1">
+                            <input type="email" name="email" id="emai-input" placeholder="email">
+                    </form>
+                    <br><br>
+                    <form>
+                            <input type="password" name="password" id="password"
+                        placeholder="password">
+                        <img src="image/trailing-icon.svg" id="eye" onclick="togglePassword()"
+                        style="position: absolute;margin-left: -30px;margin-top: 3.5px;width: 30px;">
+                    </form>
+                        <br>
+                    <form>
+                        <input type="checkbox" id="rememberMe">
+                        <label for="remember">Remember me </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <a class="forgot">
+                        <a href="Forgot  Password.html" style="
+                            text-decoration: none; color: #FF8682;">Forgot Password
+                        </a> 
+                    </form>
+                    <br>
+<button type="button" id="button" onclick="login()">Login</button>
+<div id="message" style="color:red; margin-top:10px;"></div>
+                 
+<br>
+                    <br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Don’t have an account? 
+                    <a class="or">
+                    <a href="sign up.html" style="text-decoration: none;color: #FF8682;">Sign up </a>
+                    </a>
+                    <br>
+                    <br><br>
+  <span style="display: inline-block; width: 104px; border-top: 1px solid #ccc; vertical-align: middle;"></span>
+  <span style="margin: 0 10px; color: #555;">OR login with</span>
+  <span style="display: inline-block; width: 104px; border-top: 1px solid #ccc; vertical-align: middle;"></span>
+</p>
+                        <br>
+                    <button><img src="image/Vector (1).png"> </button>
+                    &nbsp;
+                    <button><img src="image/flat-color-icons_google.png"> </button>
+                    &nbsp;
+                    <button><img src="image/ant-design_apple-filled.png"></button>
+                </div>
+                </div>
+                <div class="imga">
+                    <img src="image/Group 4.png">
+                </div>
+        </header>
+<script>
+    
+function togglePassword() {
+  const input = document.getElementById("password");
+  const eye = document.getElementById("eye");
+
+  if (input.type === "password") {
+    input.type = "text";
+    eye.src = "image/trailing-icon1.svg";
+    eye.style.transform = "scale(1.2)";
+    setTimeout(() => eye.style.transform = "scale(1)", 200);
+  } else {
+    input.type = "password";
+    eye.src = "image/trailing-icon.svg";
+    eye.style.transform = "scale(1.2)";
+    setTimeout(() => eye.style.transform = "scale(1)", 200);
+  }
+}
+
+function login() {
+  const loginInput = document.getElementById('emai-input').value.trim();
+  const passwordInput = document.getElementById('password').value.trim();
+
+  // Получаем объект userData из localStorage
+  const userDataJSON = localStorage.getItem('userData');
+  if (!userDataJSON) {
+    showMessage("Нет зарегистрированных пользователей!");
+    return;
+  }
+
+  const userData = JSON.parse(userDataJSON);
+
+  // Сравниваем введённый email и пароль с сохранёнными
+  if (loginInput === userData.email && passwordInput === userData.password) {
+    window.location.href = "hello.html"; // переход на страницу приветствия
+  } else {
+    showMessage("Неверный логин или пароль!");
+  }
+}
+
+function showMessage(text) {
+  const msg = document.getElementById('message');
+  if (msg) {
+    msg.innerText = text;
+    msg.style.color = "red";
+    msg.style.marginTop = "10px";
+  }
+}
+
+
+</script>
+    </body>
+</html>
+

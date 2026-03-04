@@ -1,0 +1,28 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Добро пожаловать</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 100px; }
+  </style>
+</head>
+<body>
+
+  <h1>Добро пожаловать, <span id="username"></span>!</h1>
+  <button onclick="logout()">Выйти</button>
+
+  <script>
+    const user = localStorage.getItem('userLogin');
+    if (!user) {
+      window.location.href = "index.html"; // если нет данных — обратно
+    } else {
+      document.getElementById('username').innerText = user;
+    }
+
+    function logout() {
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

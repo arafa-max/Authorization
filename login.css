@@ -1,0 +1,104 @@
+body {
+    background-color: #EFF3FF;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 30px;
+    font-size: 12px;
+    zoom: 105%;
+}
+
+.backgr {
+    width: 750px;
+    height: 497px;
+    background-color: white;
+    border-radius: 20px;
+    padding-top: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.ss {
+    margin-left: -100px;
+}
+
+.your {
+    font-family: ' Red Hat Display', sans-serif;
+    font-weight: bold;
+}
+
+.your1 {
+    margin-left: 30px;
+    padding-bottom: 25px;
+    font-size: 17px;
+}
+
+.your1 img {
+    height: 20px;
+}
+
+.log {
+    font-weight: bold;
+    font-size: 20px;
+    font-family: ' Red Hat Display', sans-serif;
+}
+
+.logtext {
+    color: gray;
+}
+
+#emai-input {
+    height: 30px;
+    width: 298px;
+}
+
+#password {
+    height: 30px;
+    width: 298px;
+    position: relative;
+}
+
+#button {
+    width: 305px;
+    height: 29px;
+   background-color:#515DEF;
+    border-radius: 3px;
+    color: white;
+}
+
+.backgr button {
+    width: 95px;
+    height: 30px;
+    background-color: white;
+    border-color: #3869EB;
+    border-radius: 2px;
+    cursor: pointer;
+    border: solid 1px  #3869EB;
+}
+
+.forgot {
+    color:#FF8682;
+}
+
+.backgr link {
+    color: red;
+}
+.or{
+    color:#FF8682;
+}
+.logwtih{
+  display: inline-block; width: 30%; border-top: 1px solid #ccc; vertical-align: middle;
+    margin: 0 10px;color: #555;
+  display: inline-block; width: 30%; border-top: 1px solid #ccc; vertical-align: middle;
+    
+}
+.imga{
+    margin-top: 30px;
+}
+.imga img{
+    height: 420px
+}
+input {
+  border: 1px solid #ccc;
+border-radius: 3px;
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email - Travelwise</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  /* Письмо */
+  .email-card {
+    display: none;
+    width: 450px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .email-header {
+    background: #2196F3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .email-header img {
+    width: 80px;
+    margin-bottom: 10px;
+  }
+
+  .email-header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  .email-date {
+    font-size: 12px;
+    color: #ddd;
+    margin-top: 5px;
+  }
+
+  .email-body {
+    padding: 25px;
+    color: #333;
+    text-align: center;
+  }
+
+  .email-body h2 {
+    margin-top: 0;
+  }
+
+  .email-body p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .code-box {
+    font-size: 32px;
+    font-weight: bold;
+    background: #f5f5f5;
+    padding: 15px 0;
+    margin-bottom: 25px;
+    border-radius: 6px;
+    letter-spacing: 4px;
+  }
+
+  .btn-action {
+    background: #ff8682;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .email-footer {
+    background: #f9f9f9;
+    color: #777;
+    font-size: 12px;
+    padding: 15px;
+    text-align: center;
+  }
+
+  /* Уведомление */
+  .notification {
+    background: #ffffff;
+    border-left: 5px solid #ff8682;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: fixed;
+    top: 20px;
+    right: -350px;
+    transition: right 0.5s ease;
+    z-index: 1000;
+  }
+
+  .notification.show {
+    right: 20px;
+  }
+
+  .notification h3 {
+    margin: 0 0 10px;
+    color: #333;
+  }
+
+  .notification p {
+    margin: 0 0 15px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .notification button {
+    background: #ff8682;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+</style>
+</head>
+<body>
+<div class="backgr">
+
+  <!-- Уведомление -->
+  <div class="notification" id="notification">
+      <h3>У вас новое сообщение</h3>
+      <p>От Travelwise: Код подтверждения</p>
+      <button id="openEmail">Открыть</button>
+  </div>
+
+  <!-- Письмо с кодом -->
+  <div class="email-card" id="emailCard">
+    <div class="email-header">
+      <img src="image/Group 47602.svg" alt="Travelwise Logo">
+      <h1>Travelwise</h1>
+      <div class="email-date" id="emailDate"></div>
+    </div>
+    <div class="email-body">
+      <h2>Ваш код подтверждения</h2>
+      <p>Никому не сообщайте ваш код подтверждения. Он нужен для входа в ваш аккаунт.</p>
+      <div class="code-box" id="codeDisplay">000000</div>
+      <a class="btn-action" id="verifyBtn">Перейти к аккаунту</a>
+    </div>
+    <div class="email-footer">
+      Отправлено Travelwise. Если вы не запрашивали этот код, просто проигнорируйте это сообщение.
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const notification = document.getElementById('notification');
+  const openEmail = document.getElementById('openEmail');
+  const emailCard = document.getElementById('emailCard');
+  const codeDisplay = document.getElementById('codeDisplay');
+  const verifyBtn = document.getElementById('verifyBtn');
+  const emailDate = document.getElementById('emailDate');
+
+  // Показать уведомление через 1 секунду
+  setTimeout(() => {
+    notification.classList.add('show');
+  }, 1000);
+
+  // Генерация случайного кода
+  function genCode() {
+    return Math.floor(100000 + Math.random() * 900000).toString();
+  }
+
+  // Формат даты
+  const now = new Date();
+  const options = { day: '2-digit', month: 'long', year: 'numeric', hour:'2-digit', minute:'2-digit' };
+  emailDate.textContent = now.toLocaleString('ru-RU', options);
+
+  // Открыть письмо
+  openEmail.addEventListener('click', () => {
+    const code = genCode();
+    codeDisplay.textContent = code;
+    notification.style.display = 'none';
+    emailCard.style.display = 'block';
+  });
+
+  // Verify - переход на страницу Verify code
+  verifyBtn.addEventListener('click', () => {
+    sessionStorage.setItem('passwordResetCode', codeDisplay.textContent);
+    window.location.href = 'Verify code.html';
+  });
+</script>
+</body>
+</html>
